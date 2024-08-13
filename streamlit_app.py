@@ -9,7 +9,7 @@ st.set_page_config(page_title="Relatório de Eficiência Energética - Hotel Vil
 # Estilo da Sidebar e Navegação
 st.sidebar.title("Navegação")
 st.sidebar.info("Utilize o menu abaixo para navegar pelas seções do relatório.")
-secoes = ["Página Inicial", "Caracterização Geral", "Escopo", "Descrição do Imóvel", 
+secoes = ["Página Inicial", "Caracterização Geral", "Escopo", 
           "Responsabilidade Técnica", "Vistoria", "Carta Bioclimática", "Diagnóstico de Conforto", 
           "Soluções para Eficiência Energética", "Conclusão"]
 
@@ -20,26 +20,57 @@ if pagina == "Página Inicial":
     st.title("Relatório de Consultoria de Eficiência Energética")
     st.subheader("Hotel Village - João Pessoa, PB")
     st.write("""
-    Este relatório apresenta os resultados da consultoria de eficiência energética realizada no Hotel Village, 
-    localizado em João Pessoa, PB. O objetivo é identificar oportunidades de melhoria no consumo energético do hotel 
-    e propor soluções para otimizar a eficiência energética.
+    Este relatório técnico foi solicitado pelo Hotel Village Premium João Pessoa,
+    inscrito no CNPJ XX.XXX.XXX/XXXX-XX, situado na Avenida Presidente Epitácio Pessoa, n° 4851, 
+    Bairro Tambaú, João Pessoa, Paraíba, CEP: 58039-020. O objetivo deste relatório é identificar 
+    os principais pontos críticos relacionados ao consumo de energia, sistemas de aquecimento, iluminação,
+    ventilação natural e climatização do hotel,bem como propor soluções físicas que promovam a
+    eficiência energética na edificação.
     """)
-    #st.image("caminho/para/imagem_do_hotel.jpg", caption="Hotel Village", use_column_width=True)
+    st.image("img\HOTEL.jpg", caption="Hotel Village", use_column_width=True)
 
 # Caracterização Geral do Objeto
 elif pagina == "Caracterização Geral":
-    st.header("Caracterização Geral do Objeto")
-    st.subheader("Localização")
-    m = folium.Map(location=[-7.11532, -34.861], zoom_start=15)
-    folium.Marker([-7.11532, -34.861], tooltip="Hotel Village").add_to(m)
-    st_folium(m, width=700, height=500)
+    st.header("Caracterização Geral")
+    col1, col2 = st.columns(2)
 
-    st.subheader("Endereço")
-    st.write("Av. Epitácio Pessoa, 4851 - Tambaú, João Pessoa - PB, 58039-000, Brasil")
+    with col1:
+
+        st.subheader("Especificações Técnicas")
+        st.write("""
+        **Área construída:** XXX m²  
+        **Número de Apartamentos:** 90  
+        **Número de andares:** 9  
+        **Ano de construção:** 1992  
+        
+        """)
+        st.subheader("Estrutura do hotel")
+        st.write("""
+                    - 9 andares;
+                    - Recepção 24 horas;
+                    - Sala para eventos;
+                    - Piscina adulto e infantil com hidromassagem;
+                    - Academia;
+                    - Espaço de convivência com jogos;
+                    - Dois restaurantes;
+                    - Um elevador social e um elevador de serviço;
+                    """)
+
+
+    with col2:
+        st.subheader("Localização do Hotel")
+        m = folium.Map(location=[-7.118022201858272, -34.82780018465539], zoom_start=15)
+        folium.Marker([-7.118022201858272, -34.82780018465539], tooltip="Hotel Village").add_to(m)
+        st_folium(m, width=600, height=300)
+   
+    
+    st.subheader("Descrição do Imóvel")
     st.write("""
-    O Hotel Village está estrategicamente localizado no bairro Tambaú, uma área conhecida por sua proximidade com as 
-    principais atrações turísticas de João Pessoa, além de fácil acesso a serviços e comércio.
-    """)
+                    O empreendimento possui 90 apartamentos divididos nas categorias Standard e Premium.
+                    Todos os quartos incluem uma Smart TV LED de 42 polegadas, 
+                    frigobar, ar-condicionado split, além de um banheiro privativo equipado com água quente.
+                    """)
+
 
 # Escopo
 elif pagina == "Escopo":
@@ -59,27 +90,6 @@ elif pagina == "Escopo":
     - Áreas comuns e quartos.
     """)
 
-# Descrição do Imóvel
-elif pagina == "Descrição do Imóvel":
-    st.header("Descrição do Imóvel")
-    st.subheader("Características Gerais")
-    st.write("""
-    O Hotel Village é um edifício de 4.851 metros quadrados, com 84 quartos distribuídos em 4 andares. 
-    O hotel foi construído em 1992 e passou por reformas recentes para modernização das instalações elétricas e de 
-    iluminação.
-    """)
-
-    st.subheader("Especificações Técnicas")
-    st.write("""
-    **Área construída:** 4.851 m²  
-    **Número de quartos:** 84  
-    **Número de andares:** 4  
-    **Ano de construção:** 1992  
-    **Materiais predominantes:** Concreto, vidro, alumínio
-    """)
-
-    #st.image("caminho/para/imagem_do_imovel.jpg", caption="Fachada do Hotel", use_column_width=True)
-
 # Responsabilidade Técnica
 elif pagina == "Responsabilidade Técnica":
     st.header("Responsabilidade Técnica")
@@ -89,17 +99,19 @@ elif pagina == "Responsabilidade Técnica":
     """)
 
     st.subheader("Equipe Técnica")
-    st.write("""
-    **Eng. Julia Alves** - Engenheira de Energias Renováveis  
-    Especialista em análise de consumo energético e otimização de sistemas elétricos.
-    
-    **Eng. Julia Ribeiro** - Especialista em Eficiência Energética  
-    Foco em soluções para edificações comerciais e residenciais.
-    
-    **Eng. Andressa Silva** - Analista de Projetos  
-    Responsável pela coordenação técnica e implementação das soluções propostas.
-    """)
 
+    # Criação de três colunas para exibir as fotos lado a lado
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.image("img\ju.jpg", caption="Eng. Julia Alves", use_column_width=True)
+    with col2:
+        st.image("img\ju2.jpg", caption="Eng. Julia Ribeiro", use_column_width=True)
+        
+
+    with col3:
+        st.image("img\\andressa.jpg", caption="Andressa Kátia", use_column_width=True)
+    
 # Vistoria
 elif pagina == "Vistoria":
     st.header("Vistoria")
@@ -120,7 +132,7 @@ elif pagina == "Vistoria":
 elif pagina == "Carta Bioclimática":
     st.header("Carta Bioclimática")
     st.write("A carta bioclimática do Hotel Village foi analisada para determinar o conforto térmico ao longo do ano.")
-    #st.image("caminho/para/carta_bioclimatica.png", caption="Carta Bioclimática", use_column_width=True)
+    # st.image("caminho/para/carta_bioclimatica.png", caption="Carta Bioclimática", use_column_width=True)
 
 # Diagnóstico de Conforto
 elif pagina == "Diagnóstico de Conforto":
