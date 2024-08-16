@@ -160,11 +160,11 @@ elif pagina == "Vistoria":
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.image("img\\boilers.jpg", use_column_width=True)
+        st.image("img/boiler.jpg", use_column_width=True)
     with col2:
-        st.image("img\\coletor.jpg", use_column_width=True)
+        st.image("img/coletor.jpg", use_column_width=True)
     with col3:
-        st.image("img\\coletores.jpg", use_column_width=True)
+        st.image("img/coletores.jpg", use_column_width=True)
     
     
     st.subheader("Climatização")
