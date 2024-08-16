@@ -163,11 +163,11 @@ elif pagina == "Vistoria":
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.image("img\split_eventos.jpg", use_column_width=True)
+        st.image("img/split_eventos.jpg", use_column_width=True)
     with col2:
-        st.image("img\split_quarto.jpg", use_column_width=True)
+        st.image("img/split_quarto.jpg", use_column_width=True)
     with col3:
-        st.image("img\split_recepcao.jpg", use_column_width=True)
+        st.image("img/split_recepcao.jpg", use_column_width=True)
         
 
     st.subheader("Iluminação")
@@ -184,18 +184,18 @@ elif pagina == "Vistoria":
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image("img\IMG_20240801_104201.jpg", use_column_width=True)
+        st.image("img/IMG_20240801_104201.jpg", use_column_width=True)
     with col2:
-        st.image("img\IMG_20240801_104230.jpg", use_column_width=True)
+        st.image("img/IMG_20240801_104230.jpg", use_column_width=True)
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.image("img\iluminacao_corredor.jpg", use_column_width=True)
+        st.image("img/iluminacao_corredor.jpg", use_column_width=True)
     with col2:
-        st.image("img\ilumi1.jpg", use_column_width=True)
+        st.image("img/ilumi1.jpg", use_column_width=True)
     with col3:
-        st.image("img\iluminacao_elevador.jpg", use_column_width=True)
+        st.image("img/iluminacao_elevador.jpg", use_column_width=True)
 
     st.subheader("Aquecimento de água")    
     st.markdown("""
@@ -475,7 +475,7 @@ elif pagina == "Recomendações Técnicas":
         necessidade de ventilação mecânica, diminuindo o consumo energético e o impacto ambiental.""",
         unsafe_allow_html=True)
 
-    st.image("img\jardins.png",use_column_width=True)
+    st.image("img/jardins.png",use_column_width=True)
 
     st.markdown("""<div style="text-align: justify;"> Os pátios internos, observados na Figura abaixo, são outra estratégia eficaz
                 que pode ser vista em hotéis como o Hotel Patio de las Cruces, em Sevilha. 
@@ -486,7 +486,7 @@ elif pagina == "Recomendações Técnicas":
                 """,
         unsafe_allow_html=True)
     
-    st.image("img\jardins2.png",use_column_width=True)
+    st.image("img/jardins2.png",use_column_width=True)
 
     st.markdown("""<div style="text-align: justify;">Dessa forma, a adoção de jardins verticais e 
                 pátios internos não só melhora a eficiência da ventilação natural, 
@@ -530,7 +530,7 @@ elif pagina == "Recomendações Técnicas":
                 """,
         unsafe_allow_html=True)
     
-    st.image("img\connected.png",use_column_width=True)
+    st.image("img/connected.png",use_column_width=True)
    
 
     st.markdown("""<div style="text-align: justify;">Ao aliar a eficiência dos sistemas de ar condicionado com a 
@@ -559,7 +559,7 @@ elif pagina == "Recomendações Técnicas":
                    """,
         unsafe_allow_html=True)
     
-    st.image("img\hotel_brise.jpg",use_column_width=True)
+    st.image("img/hotel_brise.jpg",use_column_width=True)
 
     st.markdown("""<div style="text-align: justify;">Dessa forma, a adoção de brises, marquises e pergolados 
                 não só melhora a eficiência energética e o conforto térmico, mas também se 
@@ -586,7 +586,7 @@ elif pagina == "Recomendações Técnicas":
                 necessidades dos hóspedes e ao uso dos espaços, ao mesmo tempo em que otimiza o consumo de energia. 
                    """,
         unsafe_allow_html=True)
-    st.image("img\lutron.png",use_column_width=True)
+    st.image("img/lutron.png",use_column_width=True)
 
 with st.sidebar:
     st.info("Para mais informações, acesse o relatório completo:")
