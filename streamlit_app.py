@@ -392,7 +392,7 @@ elif pagina == "Diagnóstico de Conforto":
                 de João Pessoa. Logo, as Retas Normais delimitadas para a cidade 
                 João Pessoa na carta bioclimática estão expostas na figura abaixo.""", unsafe_allow_html=True)
 
-    st.image("img\carta.png", use_column_width=True)
+    st.image("img/carta.png", use_column_width=True)
 
     html_table = """
     <div style="display: flex; justify-content: center; align-items: center; padding: 20px;">
