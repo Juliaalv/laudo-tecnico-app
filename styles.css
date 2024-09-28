@@ -1,0 +1,26 @@
+/* Estilos personalizados para botões e outros elementos */
+
+/* Botões personalizados */
+.stButton button {
+    background-color: #FF4B4B;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Efeito hover nos botões */
+.stButton button:hover {
+    background-color: #ff3333;
+}
+
+/* Estilo para os expansores */
+.stExpander {
+    margin-bottom: 20px;
+}
