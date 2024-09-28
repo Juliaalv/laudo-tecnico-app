@@ -729,7 +729,7 @@ elif pagina_selecionada == "Análise de Sombreamento":
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image("img\hotelsomb.jpg", width=400)
+        st.image("img/hotelsomb.jpg", width=400)
     with col2:
         video2 = open('tsolar2.mp4', 'rb')
         st.video(video2, format="video/mp4", start_time=0)
@@ -764,7 +764,7 @@ elif pagina_selecionada == "Análise de Sombreamento":
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image("img\carta1.jpg", width=300)
+        st.image("img/carta1.jpg", width=300)
     with col2:
          st.markdown("""
             <div style="text-align: justify;">
@@ -790,7 +790,7 @@ elif pagina_selecionada == "Análise de Sombreamento":
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image('img\sombreamento_oeste.jpg', width=300)
+        st.image('img/sombreamento_oeste.jpg', width=300)
 
     with col2:
          st.markdown("""
@@ -846,7 +846,7 @@ elif pagina_selecionada == "Máscara de Penetração":
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image('img\penetracao304.jpg', width=300)
+        st.image('img/penetracao304.jpg', width=300)
 
     with col2:
          st.markdown("""
@@ -869,7 +869,7 @@ elif pagina_selecionada == "Máscara de Penetração":
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image('img\penetracao305.jpg', width=300)
+        st.image('img/penetracao305.jpg', width=300)
 
     with col2:
          st.markdown("""
