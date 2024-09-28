@@ -819,7 +819,7 @@ elif pagina_selecionada == "Análise de Sombreamento":
             permitindo que, durante esses períodos, o hotel receba luz solar direta sem obstruções.
             """, unsafe_allow_html=True)
     
-    st.image('img\sombreamento_norte.jpg', width=300)
+    st.image('img/sombreamento_norte.jpg', width=300)
 
 elif pagina_selecionada == "Máscara de Penetração":
     st.header('Máscara de Penetração')
