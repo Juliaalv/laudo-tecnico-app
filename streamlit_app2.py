@@ -4,6 +4,7 @@ import folium
 from streamlit_folium import st_folium
 from datetime import datetime
 import plotly.graph_objects as go
+import numpy as np
 
 
 # Configuração da Página
@@ -72,6 +73,14 @@ with st.sidebar.expander("Seção 2"):
     
     if st.button("Análise de Sombreamento", key="analise_sombreamento", use_container_width=True, help="Clique para ver a análise de sombreamento"):
         pagina_selecionada = "Análise de Sombreamento"
+
+    if st.button("Máscara de Penetração", key="analise_penetracao", use_container_width=True, help="Clique para ver a máscara de penetração"):
+        pagina_selecionada = "Máscara de Penetração"
+    
+    if st.button("Iluminação Artificial", key="analise_ilu", use_container_width=True, help="Clique para ver a análise da Iluminação Artificial"):
+        pagina_selecionada = "Iluminação Artificial"
+
+
 
 # Exibição da página selecionada
 if pagina_selecionada == "Sobre":
@@ -640,15 +649,258 @@ elif pagina_selecionada == "Recomendações Técnicas":
     st.image("img/lutron.png",use_column_width=True)
 
 elif pagina_selecionada == "Carta Solar":
-     
-     
-    video2 = open('tsolar2.mp4', 'rb')
+    st.header('Carta Solar')
 
-    # Use st.video para exibir o vídeo
-    st.video(video2, format="video/mp4", start_time=0)
+
+    st.markdown("""
+        <div style="text-align: justify;">
+        A carta solar é uma ferramenta essencial no planejamento arquitetônico,
+        especialmente em projetos que visam maximizar o conforto e a eficiência energética, 
+        como no caso de hotéis. A conversão solar transforma a trajetória solar em uma representação
+        2D para fácil leitura.
+
+            """, unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+   
+    with col1:
+        st.image("img/cs1.jpg", width=300)
+        
+    with col2:
+        
+        st.subheader("O uso da carta solar permite:")
+        st.write("""
+        - Análisar a trajetória do sol ao longo do ano;
+        - Identificar as fachadas mais expostas ao sol e das que permanecem sombreadas em diferentes horários e estações;
+        - Definir as melhores estratégias para garantir condições ideais de iluminação;
+        """)
+        
+    st.subheader("Análise de Horas de Sol")
+    
+    st.markdown("""
+            <div style="text-align: justify;">
+            O quadro a seguir apresenta as quantidades de horas de sol nos solstícios,
+            que marcam o início do verão e do inverno. Nos solstícios, 
+            o sol atinge sua maior declinação em relação à Linha do Equador. 
+            Durante o solstício de verão, o hemisfério sul recebe o maior número de horas de sol,
+            já que o sol se aproxima do Trópico de Capricórnio. No solstício de inverno, 
+            o sol se aproxima do Trópico de Câncer, reduzindo as horas de sol no hemisfério sul. 
+            Nos equinócios, o sol incide diretamente sobre o Equador, 
+            distribuindo a mesma quantidade de radiação para os dois hemisférios.
+
+            """, unsafe_allow_html=True)
+    
+    data = {
+    "Fenômenos Astronômicos": ["Solstício de Verão", "Equinócios", "Solstício de Inverno"],
+    "Datas": ["22/Dez", "21/Mar e 23/Set", "22/Jun"],
+    "Horas de Sol": ["12h26min", "12h00min", "11h33min"]
+}
+
+    df = pd.DataFrame(data)
+
+    # Exibindo a tabela no Streamlit
+    st.table(df)
+    
+    st.markdown("""
+            <div style="text-align: justify;">
+            O Hotel Village Premium, voltado para o Leste, recebe mais luz solar durante as manhãs, 
+            especialmente no solstício de verão. Nos equinócios, com a radiação solar incidindo sobre a
+            linha do equador, João Pessoa, por estar próxima a essa linha, tem mais horas de sol do que 
+            no solstício de inverno. Isso demonstra a eficácia da carta solar e destaca a vantagem da 
+            localização do hotel em relação à luz natural.
+
+            """, unsafe_allow_html=True)
     
 
-elif pagina_selecionada == "Análise de Sombreamento":
-    st.title("Análise de Sombreamento")
-    st.write("Estudo de sombreamento do imóvel para otimização do conforto térmico e eficiência energética.")
 
+elif pagina_selecionada == "Análise de Sombreamento":
+
+    st.header('Análise de Sombreamento')
+    st.markdown("""
+            <div style="text-align: justify;">
+            A análise de sombreamento de uma edificação consiste em avaliar a projeção de sombras
+            ao longo do dia e do ano, considerando a localização geográfica, a orientação da construção 
+             e os elementos circundantes, como outras edificações. Esse estudo permite identificar áreas de 
+             edificação que estarão mais ou menos expostas à luz solar direta, auxiliando na otimização do 
+             desempenho energético e no conforto dos usuários.
+
+            """, unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image("img\hotelsomb.jpg", width=400)
+    with col2:
+        video2 = open('tsolar2.mp4', 'rb')
+        st.video(video2, format="video/mp4", start_time=0)
+
+    st.markdown("""
+            <div style="text-align: justify;">
+                Para a realização da Análise de Sombreamento do Hotel Village Premium, 
+                considerou-se características importantes, como altura, largura 
+                e distância da vizinhança em relação ao hotel.
+
+            """, unsafe_allow_html=True)
+    data_s = {
+        "Local": ["Hotel Village", "Edificação a Leste", "Edificação ao Norte", "Edificação a Oeste"],
+        "Altura (m)": [23, 36, 31, 41],
+        "Largura (m)": [np.nan, 42, 90, 42],
+        "Distância ao Hotel (m)": [np.nan, 20, 36, 29]
+    }
+
+    df_s = pd.DataFrame(data_s)
+    st.table(df_s)
+
+    st.subheader('Vizinhança Leste')      
+
+    st.markdown("""
+            <div style="text-align: justify;">
+            A máscara de sombreamento causada pela vizinhança leste no hotel afeta 
+            principalmente os horários da manhã. Na Figura abaixo, a área em vermelho à 
+            direita indica o período em que o sol está bloqueado pela edificação a leste,
+            abrangendo as primeiras horas após o nascer do sol.
+            """, unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image("img\carta1.jpg", width=300)
+    with col2:
+         st.markdown("""
+            <div style="text-align: justify;">
+            <ul>
+                <li><strong>Solstício de verão</strong>: Hotel sombreado até aproximadamente 9h30min; após esse horário, sol ilumina diretamente a fachada leste.</li>
+                <li><strong>Equinócios</strong>: Sombreamento até cerca de 9h41min; depois, o sol começa a iluminar o hotel.</li>
+                <li><strong>Solstício de inverno</strong>: Sombreamento prolongado até aproximadamente 9h48min devido à trajetória mais baixa do sol.</li>
+                <li><strong>Inverno</strong>: Luz solar direta limitada nas primeiras horas da manhã devido à trajetória do sol e à presença da edificação leste.</li>
+            </ul>
+            </div>
+            """, unsafe_allow_html=True)
+
+
+    st.subheader('Vizinhança Oeste')      
+
+    st.markdown("""
+            <div style="text-align: justify;">
+            Na Figura abaixo, a área vermelha à esquerda representa o sombreamento causado pela edificação à oeste. 
+            
+            """, unsafe_allow_html=True)
+    
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image('img\sombreamento_oeste.jpg', width=300)
+
+    with col2:
+         st.markdown("""
+            <div style="text-align: justify;">
+            <ul>
+                <li><strong>Solstício de verão</strong>: O sombreamento começa mais tarde, por volta das 14h47min, e se prolonga por um período mais curto. </li>
+                <li><strong>Equinócios</strong>: O sombreamento se inicia por volta das 14h44min, à medida que o sol começa a descer no horizonte oeste.</li>
+                <li><strong>Solstício de inverno</strong>: O hotel estará sombreado a partir das 15h00min, com o sombreamento se estendendo até o pôr do sol.</li>
+                <li>Essa variação sazonal resulta em diferentes períodos de incidência de luz solar direta na fachada
+            oeste do hotel, sendo os Equinócios os períodos mais afetados pelo sombreamento no final da tarde.</li>
+            </ul>
+            </div>
+            """, unsafe_allow_html=True)
+
+
+    
+    st.subheader('Vizinhança Norte')
+
+    st.markdown("""
+            <div style="text-align: justify;">
+            Na Figura a seguir, a área vermelha da máscara de sombreamento ao norte não passa 
+            por nenhum solstício ou equinócio, o que significa que as obstruções ao norte 
+            não impactam diretamente o hotel nos dias mais críticos em termos de trajetória solar, 
+            como nos solstícios de verão e inverno, ou nos equinócios. Isso indica que a vizinhança 
+            ao norte tem uma altura ou posição que não interfere nas trajetórias solares mais importantes, 
+            permitindo que, durante esses períodos, o hotel receba luz solar direta sem obstruções.
+            """, unsafe_allow_html=True)
+    
+    st.image('img\sombreamento_norte.jpg', width=300)
+
+elif pagina_selecionada == "Máscara de Penetração":
+    st.header('Máscara de Penetração')
+    st.markdown("""
+            <div style="text-align: justify;">
+            A máscara de penetração solar é uma ferramenta usada para avaliar a incidência direta de luz solar
+            em um edifício ao longo do ano. Ela mostra os períodos em que o sol penetra em diferentes ângulos 
+            e alturas no ambiente interior, de acordo com a trajetória solar sazonal. Com essa análise, 
+            é possível projetar elementos como brises, persianas ou varandas, 
+            ajustando o sombreamento de acordo com a necessidade de iluminação e conforto térmico ao 
+            longo do ano, garantindo o melhor aproveitamento da luz solar.
+            Para a avaliação, usou-se as dimensões (largura, altura e peitoril) 
+            das janelas da fachada leste do hotel dos quartos 304 e 305. 
+            """, unsafe_allow_html=True)
+    
+    st.subheader('Fachada Leste')
+
+    st.markdown("""
+            <div style="text-align: justify;">
+            Na Figura abaixo, a área vermelha indica a penetração solar para o apartamento 304 ao longo do ano. 
+            """, unsafe_allow_html=True)
+    
+    
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image('img\penetracao304.jpg', width=300)
+
+    with col2:
+         st.markdown("""
+            <div style="text-align: justify;">
+            <ul>
+                <li><strong>Solstício de inverno</strong>: Não há penetração solar no local, e a área permanece sombreada o tempo todo.</li>
+                <li><strong>Equinócios</strong>: A penetração de luz solar começa às 8h55min e se estende até às 10h00min,
+                totalizando 1h05min de luz direta.</li>
+                <li><strong>Solstício de verão</strong>: a penetração solar inicia às 8h45min
+                e se prolonga até às 9h55min, resultando em 1h10min de incidência direta.</li>
+                <li>Após esses períodos, a área também permanece sombreada.</li>
+            </ul>
+            </div>
+            """, unsafe_allow_html=True)
+    st.markdown("""
+            <div style="text-align: justify;">
+            Na Figura abaixo, a área vermelha indica a penetração solar para o quarto 305 ao longo do ano.
+            """, unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image('img\penetracao305.jpg', width=300)
+
+    with col2:
+         st.markdown("""
+            <div style="text-align: justify;">
+            <ul>
+                <li><strong>Solstício de inverno</strong>:A área recebe luz solar a partir de 
+                aproximadamente 9h00min até às 10h00min, oferecendo 1h00min de insolação.</li>
+                <li><strong>Equinócios</strong>:  o sol começa a incidir por volta das 8h48min e 
+                segue até cerca de 10h00min, somando 1h12min de exposição solar direta.</li>
+                <li><strong>Solstício de verão</strong>: O local é iluminado entre 8h30min e 9h55min, 
+                após esse período de 1h25min, a área volta a ficar sombreada.</li>
+            </ul>
+            </div>
+            """, unsafe_allow_html=True)
+         
+elif pagina_selecionada == "Iluminação Artificial":
+    st.header('Caracterização do Sistema de Iluminação Artificial')
+
+    dados= {
+    "Tipo de Quarto": ["STANDAR D (x45)", "STANDAR D (x45)", "WC STANDAR D (x45)", "PREMIUM (x45)", "PREMIUM (x45)", "WC PREMIUM (x45)"],
+    "Equipamento": ["LÂMPADAS", "LUMINÁRIAS", "LÂMPADAS", "LÂMPADAS", "LUMINÁRIAS", "LÂMPADAS"],
+    "Modelo": ["AVANT", "FOXI.LUX", "AVANT", "AVANT", "FOXI.LUX", "AVANT"],
+    "Unidades": [225, 136, 45, 135, 180, 90],
+    "Potência Unitária (W)": [5, 3, 5, 5, 3, 5],
+    "Horas de Uso": [6075, 2028, 2025, 6075, 2025, 2025],
+    "Potência Mensal (W)": [6834375, 820125, 465625, 2460375, 1822500, 911250],
+    "Consumo (kWh)": [6834.375, 820.125, 465.625, 2460.375, 1822.5, 911.25]
+}
+
+# Criando um DataFrame
+    df_quarto = pd.DataFrame(dados)
+
+# Exibindo a tabela no Streamlit
+    st.table(df_quarto)
