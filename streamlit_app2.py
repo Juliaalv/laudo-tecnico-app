@@ -64,7 +64,7 @@ with st.sidebar.expander("Seção 1"):
         pagina_selecionada = "Diagnóstico de Conforto"
     
     if st.button("Recomendações Técnicas", key="recomendacoes_tecnicas", use_container_width=True, help="Clique para ver as recomendações técnicas"):
-        pagina_selecionada = "Recomendações Técnicas 2"
+        pagina_selecionada = "Recomendações Técnicas"
 
 # Seção 2: Novas Análises
 with st.sidebar.expander("Seção 2"):
