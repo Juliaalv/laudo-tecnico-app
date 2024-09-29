@@ -45,45 +45,45 @@ st.sidebar.title("Páginas disponíveis")
 
 # Seção 1: Caracterização, Diagnósticos e Recomendações
 with st.sidebar.expander("Seção 1"):
-    if st.button("Sobre", key="pagina_inicial", use_container_width=True, help="Clique para ver a página inicial"):
+    if st.button("Sobre", key="pagina_inicial", use_container_width=True):
         pagina_selecionada = "Sobre"
     
-    if st.button("Responsabilidade Técnica", key="responsabilidade_tecnica", use_container_width=True, help="Clique para ver os responsáveis técnicos"):
+    if st.button("Responsabilidade Técnica", key="responsabilidade_tecnica", use_container_width=True):
         pagina_selecionada = "Responsabilidade Técnica"
     
-    if st.button("Caracterização do Imóvel", key="caracterizacao_imovel", use_container_width=True, help="Clique para ver a caracterização do imóvel"):
+    if st.button("Caracterização do Imóvel", key="caracterizacao_imovel", use_container_width=True):
         pagina_selecionada = "Caracterização do Imóvel"
     
-    if st.button("Vistoria", key="vistoria", use_container_width=True, help="Clique para ver as informações da vistoria"):
+    if st.button("Vistoria", key="vistoria", use_container_width=True):
         pagina_selecionada = "Vistoria"
     
-    if st.button("Caracterização de João Pessoa", key="caracterizacao_jp", use_container_width=True, help="Clique para ver a caracterização climática de JP"):
+    if st.button("Caracterização de João Pessoa", key="caracterizacao_jp", use_container_width=True):
         pagina_selecionada = "Caracterização de João Pessoa"
     
-    if st.button("Diagnóstico de Conforto", key="diagnostico_conforto", use_container_width=True, help="Clique para ver o diagnóstico de conforto"):
+    if st.button("Diagnóstico de Conforto", key="diagnostico_conforto", use_container_width=True):
         pagina_selecionada = "Diagnóstico de Conforto"
     
-    if st.button("Recomendações Técnicas", key="recomendacoes_tecnicas", use_container_width=True, help="Clique para ver as recomendações técnicas"):
+    if st.button("Recomendações Técnicas", key="recomendacoes_tecnicas", use_container_width=True):
         pagina_selecionada = "Recomendações Técnicas"
 
 # Seção 2: Novas Análises
 with st.sidebar.expander("Seção 2"):
-    if st.button("Carta Solar", key="carta_solar", use_container_width=True, help="Clique para ver a análise da carta solar"):
+    if st.button("Carta Solar", key="carta_solar", use_container_width=True):
         pagina_selecionada = "Carta Solar"
     
-    if st.button("Análise de Sombreamento", key="analise_sombreamento", use_container_width=True, help="Clique para ver a análise de sombreamento"):
+    if st.button("Análise de Sombreamento", key="analise_sombreamento", use_container_width=True):
         pagina_selecionada = "Análise de Sombreamento"
 
-    if st.button("Máscara de Penetração", key="analise_penetracao", use_container_width=True, help="Clique para ver a máscara de penetração"):
+    if st.button("Máscara de Penetração", key="analise_penetracao", use_container_width=True):
         pagina_selecionada = "Máscara de Penetração"
     
-    if st.button("Iluminação Artificial", key="analise_ilu", use_container_width=True, help="Clique para ver a análise da Iluminação Artificial"):
+    if st.button("Iluminação Artificial", key="analise_ilu", use_container_width=True):
         pagina_selecionada = "Iluminação Artificial"
     
-    if st.button("Recomendações Técnicas", key="recomendacoes_tecnicas2", use_container_width=True, help="Clique para ver as recomendações técnicas"):
+    if st.button("Recomendações Técnicas", key="recomendacoes_tecnicas2", use_container_width=True):
         pagina_selecionada = "recomendacoes tecnicas 2"
 
-    if st.button("Análise de Viabilidade de Projeto", key="Analise_viabilidade", use_container_width=True, help="Clique para ver análise de viabilidade de projeto"):
+    if st.button("Análise de Viabilidade de Projeto", key="Analise_viabilidade", use_container_width=True):
         pagina_selecionada = "Analise de viabilidade"
 
 
@@ -125,7 +125,7 @@ elif pagina_selecionada == "Caracterização do Imóvel":
     # Insira o caminho ou o arquivo de vídeo
     video_file = open('HOTEL3D.mp4', 'rb')
 
-    # Use st.video para exibir o vídeo
+    # Use st.video para exibir o vídeo 
     st.video(video_file, format="video/mp4", start_time=0)
     
     col1, col2 = st.columns(2)
