@@ -64,7 +64,7 @@ with st.sidebar.expander("Seção 1"):
         pagina_selecionada = "Diagnóstico de Conforto"
     
     if st.button("Recomendações Técnicas", key="recomendacoes_tecnicas", use_container_width=True, help="Clique para ver as recomendações técnicas"):
-        pagina_selecionada = "Recomendações Técnicas"
+        pagina_selecionada = "Recomendações Técnicas 2"
 
 # Seção 2: Novas Análises
 with st.sidebar.expander("Seção 2"):
@@ -79,6 +79,13 @@ with st.sidebar.expander("Seção 2"):
     
     if st.button("Iluminação Artificial", key="analise_ilu", use_container_width=True, help="Clique para ver a análise da Iluminação Artificial"):
         pagina_selecionada = "Iluminação Artificial"
+    
+    if st.button("Recomendações Técnicas", key="recomendacoes_tecnicas2", use_container_width=True, help="Clique para ver as recomendações técnicas"):
+        pagina_selecionada = "recomendacoes tecnicas 2"
+
+    if st.button("Análise de Viabilidade de Projeto", key="Analise_viabilidade", use_container_width=True, help="Clique para ver análise de viabilidade de projeto"):
+        pagina_selecionada = "Analise de viabilidade"
+
 
 
 
@@ -888,6 +895,20 @@ elif pagina_selecionada == "Máscara de Penetração":
 elif pagina_selecionada == "Iluminação Artificial":
     st.header('Caracterização do Sistema de Iluminação Artificial')
 
+    st.markdown("""
+            <div style="text-align: justify;">
+            Para a caracterização do sistema de iluminação artificial do hotel, 
+            foram analisados os 90 apartamentos, divididos em duas categorias: 
+            45 do tipo Standard e 45 do tipo Premium, além dos banheiros (WC) de cada unidade. 
+            Cada ambiente foi equipado com lâmpadas e luminárias, variando em potência e quantidade,  
+            conforme mostrado o quadro abaixo.
+
+
+            """, unsafe_allow_html=True)
+
+
+
+
     dados= {
     "Tipo de Quarto": ["STANDARD (x45)", "STANDARD (x45)", "WC STANDARD (x45)", "PREMIUM (x45)", "PREMIUM (x45)", "WC PREMIUM (x45)"],
     "Equipamento": ["LÂMPADAS", "LUMINÁRIAS", "LÂMPADAS", "LÂMPADAS", "LUMINÁRIAS", "LÂMPADAS"],
@@ -899,8 +920,185 @@ elif pagina_selecionada == "Iluminação Artificial":
     "Consumo (kWh)": [6834.375, 820.125, 465.625, 2460.375, 1822.5, 911.25]
 }
 
-# Criando um DataFrame
+    
     df_quarto = pd.DataFrame(dados)
 
-# Exibindo a tabela no Streamlit
     st.table(df_quarto)
+
+    st.markdown("""
+            <div style="text-align: justify;">
+           O uso diário do sistema de iluminação segue um padrão: as lâmpadas dos quartos permanecem 
+           ligadas por 4h30min, as luminárias por 1h30min, e as lâmpadas dos banheiros (WC) também por 1h30min, 
+           tanto nos quartos Standard quanto nos Premium.
+            """, unsafe_allow_html=True)
+
+
+    col1, col2= st.columns(2)
+
+    with col1:
+            st.subheader('Apartamentos Standard')
+            st.markdown("""
+                <div style="text-align: justify;">
+                <ul>
+                    <li><strong>Lâmpadas:</strong> 5 lâmpadas de 5 Watts da marca Avant.</li>
+                    <li><strong>Luminárias:</strong> 3 luminárias de 3 Watts, modelo FoxLux</li>
+                    <li><strong>Horas de Uso Mensal (45 apt)</strong>: 6.075 horas </li>
+                </ul>
+                </div>
+                """, unsafe_allow_html=True)
+
+    with col2:
+            st.subheader('Apartamentos Premium')
+            st.markdown("""
+                <div style="text-align: justify;">
+                <ul>
+                    <li><strong>Lâmpadas:</strong> 5 lâmpadas de 5 Watts da marca Avant.</li>
+                    <li><strong>Luminárias:</strong> 3 luminárias de 3 Watts, modelo FoxLux.</li>
+                    <li><strong>Horas de Uso Mensal (45 apt)</strong>: 6.075 horas.</li>
+                </ul>
+                </div>
+                """, unsafe_allow_html=True)
+            
+    col1, col2= st.columns(2)
+
+    with col1:
+            st.subheader('Banheiros Standard')
+            st.markdown("""
+                <div style="text-align: justify;">
+                <ul>
+                    <li><strong>Lâmpadas:</strong> 1 lâmpada de 5 Watts.</li>
+                    <li><strong>Horas de Uso Mensal (45 apt)</strong>: 2.025 horas. </li>
+                </ul>
+                </div>
+                """, unsafe_allow_html=True)
+
+    with col2:
+            st.subheader('Banheiros Premium')
+            st.markdown("""
+                <div style="text-align: justify;">
+                <ul>
+                    <li><strong>Lâmpadas:</strong> 2 lâmpadas de 5 Watts.</li>
+                    <li><strong>Horas de Uso Mensal (45 apt)</strong>: 2.025 horas.</li>
+                </ul>
+                </div>
+                """, unsafe_allow_html=True)
+            
+    st.markdown("""
+            <div style="text-align: justify;">
+            O sistema de iluminação, que atende todos os 90 apartamentos, 
+            é responsável por 24% do consumo total de energia do hotel, 
+            correspondendo a 13.304,25 kWh por mês. Esse consumo, 
+            ilustrado no Quadro abaixo, gera uma despesa mensal aproximada de R$ 8.142,48.
+            """, unsafe_allow_html=True)
+    
+    col1, col2= st.columns(2)
+
+    with col1:
+            st.subheader('Modalidade Tarifária')
+            st.markdown("""
+                <div style="text-align: justify;">
+                <ul>
+                    <li><strong>Fornecimento:</strong> tarifa Verde para consumidores de alta tensão. </li>
+                    <li><strong>Classificação: </strong>Classe A4 Comercial (2,3 kV a 25 kV). </li>
+                    <li><strong>Ligação: </strong>Trifásica.</li>
+                </ul>
+                </div>
+                """, unsafe_allow_html=True)
+
+    with col2:
+            st.subheader('Tarifas Aplicadas pela ENERGISA')
+            st.markdown("""
+                <div style="text-align: justify;">
+                <ul>
+                    <li><strong>Horário de Ponta:</strong> R$ 1,9835.</li>
+                    <li><strong> Horário Fora de Ponta:</strong> R$ 0,3877</li>
+                </ul>
+                </div>
+                """, unsafe_allow_html=True)
+            
+    st.markdown("""
+                <div style="text-align: justify;">
+                Considerando que o consumo médio total de energia do hotel é de <strong>56.507,75 kWh mensais</strong>, 
+                com um gasto total de <strong>R$ 35.402,10</strong>,Como mostra o quadro abaixo, fica evidente que o sistema de iluminação representa 
+                uma parcela significativa do consumo e dos custos. Isso reforça a importância de adotar
+                 medidas de otimização para aumentar a eficiência energética. 
+                
+                """, unsafe_allow_html=True)
+    data_sistema = {
+    "SISTEMA": ["TOTAL", "ILUMINAÇÃO"],
+    "CONSUMO (kWh)": ['56.507,75', '13.304,25'],
+    "CUSTOS (R$)": ['35.402,10', '8.142,48'] }
+
+    df_sistema = pd.DataFrame(data_sistema)
+
+    st.table(df_sistema)
+
+elif pagina_selecionada == "recomendacoes tecnicas 2":
+
+    st.header('Recomendações Técnicas')
+    st.markdown("""
+                <div style="text-align: justify;">
+                
+                Após uma análise detalhada do uso do sistema de iluminação nos 90 apartamentos, 
+                a solução identificada como a mais adequada é a implementação do Philips Hue 
+                Dimmer Switch – Interruptor Inteligente. Uma vantagem significativa do Philips Hue Dimmer Switch é 
+                sua fácil instalação, uma vez que não requer modificações complexas na infraestrutura elétrica atual.
+                 Essa solução é ideal para automatizar a iluminação de forma eficaz, permitindo a integração com 
+                sistemas de iluminação inteligente, como o próprio Philips Hue. 
+                
+                """, unsafe_allow_html=True)
+    
+    st.video('dimer.mp4')
+
+elif pagina_selecionada == "Analise de viabilidade":
+    st.header('Análise de Viabilidade de Projeto')
+    st.markdown("""
+                <div style="text-align: justify;">
+                
+                Para garantir a escolha mais econômica, realizou-se uma análise de preços
+                do Philips Hue Dimmer Switch em diferentes sites, visitados no dia 28 de Setembro de 2024,
+                mostrados no quadro abaixo, levando em consideração a
+                 disponibilidade de produtos e possíveis 
+                descontos. O objetivo foi identificar a oferta mais vantajosa, a fim de sugerir a compra de 
+                90 dimmers pelo canal que apresentar as melhores condições.
+                """, unsafe_allow_html=True)
+    data_budget = {
+    "SITE": ["PHILIPS", "MERCADO LIVRE", "ALI EXPRESS"],
+    "ENDEREÇO": ["Link Phillips", "Link Mercado livre", "Link Ali express"],
+    "PREÇO (R$)": [19710.00, 16131.60, 14119.20]
+    }
+    budget_table = pd.DataFrame(data_budget)
+    st.table(budget_table)
+
+    st.subheader('Payback')
+    st.markdown("""
+                <div style="text-align: justify;">
+                Após o alinhamento técnico realizado em 28 de setembro de 2024 com a atual
+                 gerente do hotel, foi estimado que a implementação da solução proposta poderá 
+                gerar uma economia de 10% a 15% no sistema de iluminação dos apartamentos. 
+                Essa estimativa baseia-se na eficiência energética proporcionada pelo uso de dimmers, 
+                que permitem um controle mais preciso da intensidade luminosa, e consequentemente, 
+                no menor consumo de energia sem comprometer o conforto dos hóspedes. 
+                Com base nessa projeção, foi realizada uma análise de payback, considerando 
+                os dois cenários de economia: 10% e 15%, ilustrado no quadro abaixo. 
+                
+                """, unsafe_allow_html=True)
+    data_scenarios = {
+    "CENÁRIOS": ["10%", "15%"],
+    "CONSUMO (kWh)": [1330.43, 1995.64],
+    "ECONOMIA (R$)": [814.25, 1221.37]
+    }
+
+
+    scenarios_table = pd.DataFrame(data_scenarios)
+    st.table(scenarios_table)
+    
+    st.markdown("""
+                <div style="text-align: justify;">
+                Considerando o a terceira opção de orçamento proposto,
+                 o cenário em que a economia de energia atinge 10%, o período de payback 
+                estimado é de 18 meses. Já no cenário em que a economia alcança 15%, 
+                o tempo de retorno é reduzido para 12 meses, tornando o investimento mais atrativo 
+                e eficiente em termos de economia de energia.
+                
+                """, unsafe_allow_html=True)
