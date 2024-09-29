@@ -756,7 +756,7 @@ elif pagina_selecionada == "Análise de Sombreamento":
     }
 
     df_s = pd.DataFrame(data_s)
-    st.table(df_s)
+    st.markdown(df_s.to_markdown(index=False), unsafe_allow_html=True)
 
     st.subheader('Vizinhança Leste')      
 
@@ -923,7 +923,8 @@ elif pagina_selecionada == "Iluminação Artificial":
     
     df_quarto = pd.DataFrame(dados)
 
-    st.table(df_quarto)
+    st.markdown(df_quarto.to_markdown(index=False), unsafe_allow_html=True)
+    
 
     st.markdown("""
             <div style="text-align: justify;">
@@ -1031,7 +1032,7 @@ elif pagina_selecionada == "Iluminação Artificial":
 
     df_sistema = pd.DataFrame(data_sistema)
 
-    st.table(df_sistema)
+    st.markdown(df_sistema.to_markdown(index=False), unsafe_allow_html=True)
 
 elif pagina_selecionada == "recomendacoes tecnicas 2":
 
@@ -1064,12 +1065,18 @@ elif pagina_selecionada == "Analise de viabilidade":
                 """, unsafe_allow_html=True)
     data_budget = {
     "SITE": ["PHILIPS", "MERCADO LIVRE", "ALI EXPRESS"],
-    "ENDEREÇO": ["Link Phillips", "Link Mercado livre", "Link Ali express"],
+    "ENDEREÇO": [
+        "[Link Philips](https://www.loja.lighting.philips.com/philips-hue-dimmer-switch-interruptor-inteligente-929002398606_pai/p)", 
+        "[Link Mercado Livre](https://www.mercadolivre.com.br/interruptor-controle-philips-hue-wireless-dimmer-sem-fio/p/MLB27693403?item_id=MLB4135250034&from=gshop&matt_tool=14372353&matt_word=&matt_source=google&matt_campaign_id=14302215552&matt_ad_group_id=150145935327&matt_match_type=&matt_network=g&matt_device=c&matt_creative=649558500191&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098639&matt_product_id=MLB27693403-product&matt_product_partition_id=2269030433745&matt_target_id=pla-2269030433745&cq_src=google_ads&cq_cmp=14302215552&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gclid=CjwKCAjw9eO3BhBNEiwAoc0-jTR-pZc_6_Y7dO2_Pw2k_hNcRqCmUZCSgVSsA9wpRfxtXdrpWoHV3hoC0EoQAvD_BwE)", 
+        "[Link Ali Express](https://pt.aliexpress.com/item/1005004159043961.html?src=google&src=google&albch=shopping&acnt=768-202-3196&isdl=y&slnk=&plac=&mtctp=&albbt=Google_7_shopping&aff_platform=google&aff_short_key=UneMJZVf&gclsrc=aw.ds&&albagn=888888&&ds_e_adid=&ds_e_matchtype=&ds_e_device=c&ds_e_network=x&ds_e_product_group_id=&ds_e_product_id=pt1005004159043961&ds_e_product_merchant_id=108380150&ds_e_product_country=BR&ds_e_product_language=pt&ds_e_product_channel=online&ds_e_product_store_id=&ds_url_v=2&albcp=21461839805&albag=&isSmbAutoCall=false&needSmbHouyi=false&gad_source=1&gclid=CjwKCAjw9eO3BhBNEiwAoc0-jcEZx2pyif5ikroRU75rh6t9RB6s4wX5cvTdgU-WD2RZF9W5C57RFBoCNj4QAvD_BwE)"
+    ],
     "PREÇO (R$)": ['19.710,00', '16.131,60', '14.119,20']
-    }
-    budget_table = pd.DataFrame(data_budget)
-    st.table(budget_table)
+}
 
+    budget_table = pd.DataFrame(data_budget)
+
+# Para exibir os links na tabela
+    st.markdown(budget_table.to_markdown(index=False), unsafe_allow_html=True)
     st.subheader('Payback')
     st.markdown("""
                 <div style="text-align: justify;">
@@ -1091,7 +1098,7 @@ elif pagina_selecionada == "Analise de viabilidade":
 
 
     scenarios_table = pd.DataFrame(data_scenarios)
-    st.table(scenarios_table)
+    st.markdown(scenarios_table.to_markdown(index=False), unsafe_allow_html=True)
     
     st.markdown("""
                 <div style="text-align: justify;">
