@@ -1085,8 +1085,8 @@ elif pagina_selecionada == "Analise de viabilidade":
                 """, unsafe_allow_html=True)
     data_scenarios = {
     "CENÁRIOS": ["10%", "15%"],
-    "CONSUMO (kWh)": [1330.43, 1995.64],
-    "ECONOMIA MENSAL (R$)": [814.25, 1221.37]
+    "CONSUMO (kWh)": ['1330,43', '1995,64'],
+    "ECONOMIA MENSAL (R$)": ['814,25', '1221,37']
     }
 
 
