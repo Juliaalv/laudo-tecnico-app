@@ -1065,7 +1065,7 @@ elif pagina_selecionada == "Analise de viabilidade":
     data_budget = {
     "SITE": ["PHILIPS", "MERCADO LIVRE", "ALI EXPRESS"],
     "ENDEREÇO": ["Link Phillips", "Link Mercado livre", "Link Ali express"],
-    "PREÇO (R$)": [19710.00, 16131.60, 14119.20]
+    "PREÇO (R$)": ['19.710,00', '16.131,60', '14.119,20']
     }
     budget_table = pd.DataFrame(data_budget)
     st.table(budget_table)
