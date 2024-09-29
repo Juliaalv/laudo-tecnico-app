@@ -889,9 +889,9 @@ elif pagina_selecionada == "Iluminação Artificial":
     st.header('Caracterização do Sistema de Iluminação Artificial')
 
     dados= {
-    "Tipo de Quarto": ["STANDAR D (x45)", "STANDAR D (x45)", "WC STANDAR D (x45)", "PREMIUM (x45)", "PREMIUM (x45)", "WC PREMIUM (x45)"],
+    "Tipo de Quarto": ["STANDARD (x45)", "STANDARD (x45)", "WC STANDARD (x45)", "PREMIUM (x45)", "PREMIUM (x45)", "WC PREMIUM (x45)"],
     "Equipamento": ["LÂMPADAS", "LUMINÁRIAS", "LÂMPADAS", "LÂMPADAS", "LUMINÁRIAS", "LÂMPADAS"],
-    "Modelo": ["AVANT", "FOXI.LUX", "AVANT", "AVANT", "FOXI.LUX", "AVANT"],
+    "Modelo": ["AVANT", "FOXLUX", "AVANT", "AVANT", "FOXLUX", "AVANT"],
     "Unidades": [225, 136, 45, 135, 180, 90],
     "Potência Unitária (W)": [5, 3, 5, 5, 3, 5],
     "Horas de Uso": [6075, 2028, 2025, 6075, 2025, 2025],
