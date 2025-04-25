@@ -94,7 +94,7 @@ if pagina_selecionada == "Sobre":
 
     with col1:
         
-         st.image("img/igreja.jpg", caption="Paróquia São Francisco de Assis", use_column_width=True)
+         st.image("img/igreja.jpg", caption="Paróquia São Francisco de Assis", use_container_width=True)
 
     with col2:
        
@@ -240,19 +240,19 @@ elif pagina_selecionada == "Responsabilidade Técnica":
 
      # Coluna 1 - Eng. Julia Alves
     with col1:
-        st.image("img/tay-photoaidcom-cropped.png", caption="Profª Drª Taynara Lago", use_column_width=True)
+        st.image("img/tay-photoaidcom-cropped.png", caption="Profª Drª Taynara Lago", use_container_width=True)
 
     # Coluna 1 - Eng. Julia Alves
     with col2:
-        st.image("img/gabi.png", caption="Gabriela Tourinho", use_column_width=True)
+        st.image("img/gabi.png", caption="Gabriela Tourinho", use_container_width=True)
 
     # Coluna 2 - Eng. Julia Ribeiro
     with col3:
-        st.image("img/ju2.jpg", caption="Julia Ribeiro", use_column_width=True)
+        st.image("img/ju2.jpg", caption="Julia Ribeiro", use_container_width=True)
 
     # Coluna 3 - Eng. Andressa Kátia
     with col4:
-        st.image("img/andressa.jpg", caption="Andressa Kátia", use_column_width=True)
+        st.image("img/andressa.jpg", caption="Andressa Kátia", use_container_width=True)
 
 
 
@@ -403,7 +403,7 @@ elif pagina_selecionada == "Diagnóstico de Conforto":
                 de João Pessoa. Logo, as Retas Normais delimitadas para a cidade 
                 João Pessoa na carta bioclimática estão expostas na figura abaixo.""", unsafe_allow_html=True)
 
-    st.image("img/carta.png", use_column_width=True)
+    st.image("img/carta.png", use_container_width=True)
 
     html_table = """
     <div style="display: flex; justify-content: center; align-items: center; padding: 20px;">
