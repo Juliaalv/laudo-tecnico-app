@@ -9,8 +9,12 @@ from streamlit_folium import st_folium
 import streamlit as st
 
 
-# Configuração da Página
-st.set_page_config(page_title="Relatório Técnico Cálculo de Carga Térmica", layout="wide")
+
+st.set_page_config(
+    page_title="Relatório Técnico Cálculo de Carga Térmica",
+    page_icon="📄",
+    layout="wide"
+)
 
 # Injetando CSS para customizar os botões
 st.markdown("""
