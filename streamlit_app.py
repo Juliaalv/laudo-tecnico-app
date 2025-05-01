@@ -75,6 +75,9 @@ with st.sidebar.expander("Seção 2"):
     if st.button("Carga Térmica Total", key="carga_termica", use_container_width=True):
         pagina_selecionada = "Carga Térmica Total"
 
+    if st.button("Sistema Proposto", key="sistema_proposto", use_container_width=True):
+        pagina_selecionada = "Sistema Proposto"
+
     if st.button("Responsabilidade Técnica", key="responsabilidade_tecnica", use_container_width=True):
         pagina_selecionada = "Responsabilidade Técnica"
 
@@ -204,20 +207,27 @@ elif pagina_selecionada == "Caracterização Interna da Edificação":
             "Lâmpadas",
             "Refletores",
             "Ventiladores de parede",
-            "Ventiladores de pedestal (Mondial)",
+            "Ventiladores de coluna",
             "Caixas de som",
             "Lâmpada vermelha",
             "Câmera",
-            "Microfones"
+            "Microfones",
+            "Bebedouro",
+            "Mesa de som",
+            "Teclado"
         ],
-        "Quant.": [3, 14, 10, 3, 4, 1, 1, 7],
-        "Pot. unitária (W)": [60, 25, 200, 140, 350, 6, 7, 4],
-        "Pot. total (W)": [180, 350, 2000, 420, 1400, 6, 7, 28]
+        "Quant.": [3, 14, 10, 3, 4, 1, 1, 7, 1, 1, 1],
+        "Pot. unitária (W)": [60, 25, 200, 140, 1000, 6, 7, 4, 97, 9, 14],
+        "Pot. total (W)": [180, 350, 2000, 420, 4000, 6, 7, 28, 97, 9, 14]
     }
+
     df_eletronicos = pd.DataFrame(dados_eletronicos)
 
     # Adicionando a linha de total
-    df_eletronicos.loc["Total"] = ["–", "–", "–", 4391]
+    total_pot = df_eletronicos["Pot. total (W)"].sum()
+    df_eletronicos.loc["Total"] = ["–", "–", "–", total_pot]
+
+   
 
     col1, col2 = st.columns([2, 1])  # Pode ajustar proporções conforme quiser
 
@@ -226,7 +236,7 @@ elif pagina_selecionada == "Caracterização Interna da Edificação":
         st.caption("Fonte: Elaboração própria (2025)")
 
     with col2:
-        st.image("img/equipamentos.png", caption="Equipamentos", width=330)
+        st.image("img/equipamentos.png", caption="Equipamentos", width=400)
 
     
 elif pagina_selecionada == "Responsabilidade Técnica":
@@ -586,34 +596,83 @@ elif pagina_selecionada == "Carga Térmica Total":
             edifício e o número de ocupantes. Após os calculos realizados, a carga térmica total
             da Paróquia São Francisco de Assis está descrita na tabela abaixo:
             """, unsafe_allow_html=True)
+        
+        # Dados da tabela de carga térmica
+    dados_carga = {
+        "Fonte de Carga": [
+            "Iluminação",
+            "Público (ocupação)",
+            "Insolação total",
+            "Infiltração",
+            "Ventilação",
+            "Equipamentos"
+        ],
+        "Potência (W)": [
+            391.28,
+            40286.00,
+            93147.53,
+            46251.67,
+            17651.83,
+            3287.50
+        ],
+        "Potência (BTU/h)": [
+            1335.71,
+            137434.63,
+            317791.04,
+            157827.41,
+            60261.55,
+            11218.15
+        ]
+    }
+
+    # Criar o DataFrame
+    df_carga = pd.DataFrame(dados_carga)
+
+    # Calcular os totais
+    total_watts = df_carga["Potência (W)"].sum()
+    total_btu = df_carga["Potência (BTU/h)"].sum()
+
     
-    dados_carga_termica = {
-    "Tipo de carga": [
-        "Carga devido às pessoas [W]",
-        "Carga devido à iluminação [W]",
-        "Carga devido aos equipamentos [W]",
-        "Carga por condução (paredes, teto, janelas e portas) [W]",
-        "Infiltração [W]",
-        "Ventilação – Sensível [W]",
-        "Ventilação – Latente [W]",
-        "Total [W]",
-        "Total [TR]",
-        "Total [BTU/h]",
+    st.table(df_carga)
+
+    # Exibir os totais
+    st.markdown(f"**Carga Térmica Total (W): {total_watts:,.2f}**")
+    st.markdown(f"**Carga Térmica Total (BTU/h): {total_btu:,.2f}**")
+
+elif pagina_selecionada == "Sistema Proposto":
+    st.subheader("Sistema Proposto")
+    st.markdown("""
+            <div style="text-align: justify;">
+            O sistema de climatização proposto para a Paróquia
+            São Francisco de Assis é um sistema de climatização central,
+            com a instalação de um sistema de climatização do tipo  split,
+            com capacidade de 60.000 BTU/h, que será instalado na parte superior do altar.
+            Esse sistema é adequado para atender a carga térmica total da edificação,
+            proporcionando conforto térmico e eficiência energética.
+            """, unsafe_allow_html=True)
+    st.video('Novo Ar condicionado TETO Midea Xpower Inverter.mp4')
+    
+    dados_custo = {
+    "Item": [
+        "Ar-condicionado 60.000 BTU",
+        "Instalação elétrica",
+        "Instalação hidráulica",
+        "Mão de obra"
     ],
-    "Valor": [
-        "27.252,10",
-        "536,00",
-        "3.855,00",
-        "44.738,05",
-        "161.785,97",
-        "-35.892,46",
-        "-72.200.000.000,00",
-        "-72.199.798.725,34",
-        "-20.532.790,94",
-        "-245.701.491.245,73"
-    ]
-}
-    st.markdown("<br>", unsafe_allow_html=True)
-    df_carga_termica = pd.DataFrame(dados_carga_termica)
-    st.table(df_carga_termica)
-    st.caption("Fonte: Elaboração própria (2025)")
+    "Valor Unitário (R$)": [13498.20, 1500.00, 1800.00, 1200.00],
+    "Quantidade": [12, 12, 12, 12],
+    "Subtotal (R$)": [161978.40, 18000.00, 21600.00, 14400.00]
+            }
+
+    # Criar o DataFrame
+    df_custo = pd.DataFrame(dados_custo)
+
+    # Calcular o total
+    total_custo = df_custo["Subtotal (R$)"].sum()
+
+    # Exibir a tabela
+    st.header("Estimativa de Custo Total (Equipamentos + Instalação)")
+    st.table(df_custo)
+
+    # Exibir o total estimado
+    st.markdown(f"**Total estimado: R$ {total_custo:,.2f}**")
