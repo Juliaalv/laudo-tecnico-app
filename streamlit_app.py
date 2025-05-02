@@ -159,7 +159,7 @@ elif pagina_selecionada == "Caracterização Interna da Edificação":
     st.subheader("Dimensões gerais da Igreja")
     dados_dimensoes = {
         "Medida": ["Comprimento", "Largura", "Altura do pé-direito", "Espessura das paredes", "Área"],
-        "Valor": ["57,20 m", "24,20 m", "7,00 m", "0,22 m", "1.384,24 m²"]
+        "Valor": ["57,20 m", "24,20 m", "4,00 m", "0,22 m", "1.384,24 m²"]
     }
     df_dimensoes = pd.DataFrame(dados_dimensoes)
     st.table(df_dimensoes)
